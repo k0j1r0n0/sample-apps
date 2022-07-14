@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"></link>
+
+<head>
+  <meta charset="UTF-8">
+  <title>CRUD App (Spring Boot)</title>
+</head>
+
+<body>  
+  <div class="range">
+    <h1>Key-Value List</h1>
+    <p align="center">Add Key-Value Pair (<a href="#" th:href="@{/home/add}">go to input form page</a>)</p>
+    <table align="center">
+      <tr><th>ID</th><th>Key</th><th>Value</th><th>Edit/Delete</th></tr>
+      <tr th:each="list : ${keyValueList}">
+        <td th:text="${list.id}"></td>
+        <td th:text="${list.key}"></td>
+        <td th:text="${list.value}"></td>
+        <td>
+          <div id="button">
+            <a href="#" th:href="@{'/home/edit/' + ${list.id}}"><button>Edit</button></a>&nbsp;    <!-- use &nbsp to put a space between the edit/delete buttons-->
+              <form action="#" th:action="@{'/home/delete/' + ${list.id}}" method="post">
+                <button>Delete</button>
+              </form>
+          </div>                
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>
