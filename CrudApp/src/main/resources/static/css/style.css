@@ -1,0 +1,51 @@
+h1 {
+  color: rgb(179, 131, 226);
+  font-size: 3rem;
+  text-align: center;
+  opacity: 0.4;
+}
+h2 {
+  color: #00a960;
+  font-size: 2rem;
+  text-align: left;
+  opacity: 0.4;
+}
+
+/* 2つボタンを横並びにするための設定 */
+#button {
+  display: flex;
+  justify-content: center;
+}
+
+.range {
+	margin: 20px ;
+}
+
+/* 表の見た目を整える設定 */
+table {
+  border-collapse: collapse;
+  /* 表を中央寄せにする */
+  margin-left: auto;
+  margin-right: auto;
+}
+td, th {            /* 各セルの指定 */
+  padding: 10px 30px;
+  text-align: center;
+  border-bottom: 1px solid #c86b5b;
+  border-right: 1px dotted #c86b5b;
+}
+th {                /* 表の見出しの指定 */
+  color: #c86b5b;  
+}
+tr:first-child {    /* 最初の行の指定 */
+  border-bottom: 2px solid #c86b5b; 
+}
+tr:last-child {     /* 最後の行の指定 */
+  border-bottom: 2px solid #c86b5b;
+}
+td:last-child {     /* 一番左の列の指定 */
+  border-right: 0;
+}
+th:last-child {     /* 一番右の列の指定 */
+  border-right: 0;
+}

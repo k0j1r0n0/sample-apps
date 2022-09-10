@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"></link>
+
+<head>
+  <meta charset="UTF-8">
+  <title>CRUD App (Spring Boot)</title>
+</head>
+
+<body>
+  <div class="range">
+    <h2>Add a New Key-Value Pair</h2>
+
+    <table align="left">
+      <tr><th><label for="key">Key</label></th><th><label for="value">Value</label></th><th></th></tr>
+      <tr>
+        <form method="post" action="#" th:action="@{/home/add/}" th:object="${keyValue}">
+          <td><input type="text" id="key" name="key" th:value="${keyValue.key}"></td>
+          <td><input type="text" id="value" name="value" th:value="${keyValue.value}"></td>
+          <td><input type="submit" value="Add"></td>
+        </form>
+      </tr>
+    </table>
+    <br><br><br><br><br>
+    <a href="#" th:href="@{/home}">Return to Home</a>
+  </div>  
+</body>
+
+</html>

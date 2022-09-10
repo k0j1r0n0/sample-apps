@@ -1,0 +1,33 @@
+#--------------------------------------------------
+# <directory structure>
+# .
+# ├── docker-compose.yml (this file)
+# └── src
+#     └── main
+#         └── resources
+#             └── 01_schema.sql
+#             └── 02_data.sql
+#
+# Usage: docker-compose up -d
+#--------------------------------------------------
+version: '3'
+
+services:
+  postgres:
+    container_name: 'mydb'             # DB container name
+    image: 'postgres:14'
+    ports:
+      - '5432:5432'                    # <host port>:<container port>
+    environment:
+      POSTGRES_DB: 'key_value_db'      # DB name
+      POSTGRES_USER: 'postgres'        # user name
+      POSTGRES_PASSWORD: 'postgres'    # password
+      TZ: 'Asia/Tokyo'                 # time zone
+    volumes:
+      - ./src/main/resources:/docker-entrypoint-initdb.d
+    networks:
+      - 'my-network'
+
+networks:
+  my-network:
+    external: true
